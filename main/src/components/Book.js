@@ -21,7 +21,7 @@ const getBookById = (id) => {
   useEffect(() => {
     // Sends a GET request to the server to get the book data
     axios
-      .get(`http://86.50.230.152:3000/dbgetgivenbookdata?bookid=${id}`)
+      .get(`http://localhost:3000/dbgetgivenbookdata?bookid=${id}`)
       .then((response) => {
         setBook(response.data);
       });
@@ -38,7 +38,7 @@ const getBookRecommendationsById = (id) => {
     // Sends a GET request to the server to get the book recommendations data
     axios
       .get(
-        `http://86.50.230.152:3000/dbgetforgivenbookrecommendedbooksalldata?bookid=${id}`
+        `http://localhost:3000/dbgetforgivenbookrecommendedbooksalldata?bookid=${id}`
       )
       .then((response) => {
         setBooks(response.data);
@@ -56,7 +56,7 @@ const getMovieRecommendationsById = (id) => {
     // Sends a GET request to the server to get the movie recommendations data
     axios
       .get(
-        `http://86.50.230.152:3000//dbgetrecommendedmoviesalldataforgivenbook?bookid=${id}`
+        `http://localhost:3000//dbgetrecommendedmoviesalldataforgivenbook?bookid=${id}`
       )
       .then((response) => {
         setMovies(response.data);
@@ -71,7 +71,7 @@ const getBooksByAuthor = (author) => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://86.50.230.152:3000//dbsearchbooksbyauthor?input=${author}`)
+      .get(`http://localhost:3000//dbsearchbooksbyauthor?input=${author}`)
       .then((response) => {
         setBooks(response.data);
       });
