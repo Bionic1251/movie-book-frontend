@@ -23,7 +23,7 @@ const getMovieById = (id) => {
   // Sends a GET request to the server to get the movie data
   useEffect(() => {
     axios
-      .get(`http://128.214.253.51:3000/dbgetgivenmoviedata?movieid=${id}`)
+      .get(`http://86.50.230.152:3000/dbgetgivenmoviedata?movieid=${id}`)
       .then((response) => {
         setMovie(response.data);
       });
@@ -40,7 +40,7 @@ const getRecommendedMoviesById = (id) => {
   useEffect(() => {
     axios
       .get(
-        `http://128.214.253.51:3000/dbgetforgivenmovierecommendedmoviesalldata?movieid=${id}`
+        `http://86.50.230.152:3000/dbgetforgivenmovierecommendedmoviesalldata?movieid=${id}`
       )
       .then((response) => {
         setMovies(response.data);
@@ -57,7 +57,7 @@ const getRecommendedBooksById = (id) => {
   useEffect(() => {
     axios
       .get(
-        `http://128.214.253.51:3000/dbgetrecommendedbooksalldataforgivenmovie?movieid=${id}`
+        `http://86.50.230.152:3000/dbgetrecommendedbooksalldataforgivenmovie?movieid=${id}`
       )
       .then((response) => {
         setBooks(response.data);
