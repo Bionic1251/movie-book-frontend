@@ -17,7 +17,7 @@ const GetBooks = () => {
 
   useEffect(() => {
     axios
-      .get("http://86.50.230.152:3000/dbgettop10highestratedbooks")
+      .get("http://localhost:3000/dbgettop10highestratedbooks")
       .then((response) => {
         setBooks(response.data);
       })
@@ -35,7 +35,7 @@ const GetMovies = () => {
 
   useEffect(() => {
     axios
-      .get("http://86.50.230.152:3000/dbgettop10highestratedmovies")
+      .get("http://localhost:3000/dbgettop10highestratedmovies")
       .then((response) => {
         setMovies(response.data);
       })
@@ -109,7 +109,7 @@ const UpdateRecommendations = () => {
 
         // Make API request
         const response = await axios.get(
-          `http://86.50.230.152:3000/dbgetpersonalrecommendations?ratings=${JSON.stringify(
+          `http://localhost:3000/dbgetpersonalrecommendations?ratings=${JSON.stringify(
             ratings
           )}`
         );
