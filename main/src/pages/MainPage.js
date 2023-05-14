@@ -35,7 +35,7 @@ const GetMovies = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/dbgettop10highestratedmovies")
+      .get("http://86.50.230.152:3000/dbgettop10highestratedmovies")
       .then((response) => {
         setMovies(response.data);
       })
