@@ -16,6 +16,8 @@ import { getCookie, setCookie, onWishlist, addToWishlist } from "../Cookies.js";
 import { updateCookies } from "../pages/Ratings";
 import { updateWishlist } from "../pages/WishList";
 
+import SERVER_ADDRESS from "../Utils";
+
 // Fetch single movie data by ID
 const getMovieById = (id) => {
   const [movie, setMovie] = useState([]);
@@ -23,7 +25,7 @@ const getMovieById = (id) => {
   // Sends a GET request to the server to get the movie data
   useEffect(() => {
     axios
-      .get(`http://86.50.230.152:3000/dbgetgivenmoviedata?movieid=${id}`)
+      .get(`${SERVER_ADDRESS}/dbgetgivenmoviedata?movieid=${id}`)
       .then((response) => {
         setMovie(response.data);
       });
@@ -39,9 +41,7 @@ const getRecommendedMoviesById = (id) => {
   // Sends a GET request to the server to get the movie recommendations data
   useEffect(() => {
     axios
-      .get(
-        `http://86.50.230.152:3000/dbgetforgivenmovierecommendedmoviesalldata?movieid=${id}`
-      )
+      .get(`${SERVER_ADDRESS}/dbgetforgivenmovierecommendedmoviesalldata?movieid=${id}`)
       .then((response) => {
         setMovies(response.data);
       });
@@ -56,9 +56,7 @@ const getRecommendedBooksById = (id) => {
   // Sends a GET request to the server to get the book recommendations data
   useEffect(() => {
     axios
-      .get(
-        `http://86.50.230.152:3000/dbgetrecommendedbooksalldataforgivenmovie?movieid=${id}`
-      )
+      .get(`${SERVER_ADDRESS}/dbgetrecommendedbooksalldataforgivenmovie?movieid=${id}`)
       .then((response) => {
         setBooks(response.data);
       });

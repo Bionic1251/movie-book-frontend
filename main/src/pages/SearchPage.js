@@ -13,6 +13,8 @@ import {
 import image from "../assets/NoImage.jpg";
 import Table from "../Table";
 
+import SERVER_ADDRESS from "../Utils";
+
 const SearchPage = () => {
   const [searchResultMovies, setSearchResultMovies] = useState([]);
   const [searchResultBooks, setSearchResultBooks] = useState([]);
@@ -30,7 +32,7 @@ const SearchPage = () => {
     if (movieSearchTypes.includes(searchType)) {
       axios
         .get(
-          `http://128.214.253.51:3000/dbsearchmoviesby${searchType}?input=${newSearch}`
+          `${SERVER_ADDRESS}/dbsearchmoviesby${searchType}?input=${newSearch}`
         )
         .then((response) => {
           setSearchResultMovies(response.data);
@@ -42,7 +44,7 @@ const SearchPage = () => {
     if (bookSearchTypes.includes(searchType)) {
       axios
         .get(
-          `http://128.214.253.51:3000/dbsearchbooksby${searchType}?input=${newSearch}`
+          `${SERVER_ADDRESS}/dbsearchbooksby${searchType}?input=${newSearch}`
         )
         .then((response) => {
           setSearchResultBooks(response.data);

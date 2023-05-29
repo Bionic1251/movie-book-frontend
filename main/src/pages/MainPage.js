@@ -11,13 +11,15 @@ import "react-multi-carousel/lib/styles.css";
 
 import Items from "../Carusel";
 
+import SERVER_ADDRESS from "../Utils";
+
 // Component to fetch the newest books from the database
 const GetBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/dbgettop10highestratedbooks")
+      .get( SERVER_ADDRESS + "/dbgettop10highestratedbooks")
       .then((response) => {
         setBooks(response.data);
       })
@@ -35,7 +37,7 @@ const GetMovies = () => {
 
   useEffect(() => {
     axios
-      .get("http://86.50.230.152:3000/dbgettop10highestratedmovies")
+      .get(SERVER_ADDRESS + "/dbgettop10highestratedmovies")
       .then((response) => {
         setMovies(response.data);
       })
@@ -109,7 +111,7 @@ const UpdateRecommendations = () => {
 
         // Make API request
         const response = await axios.get(
-          `http://localhost:3000/dbgetpersonalrecommendations?ratings=${JSON.stringify(
+          `${SERVER_ADDRESS}/dbgetpersonalrecommendations?ratings=${JSON.stringify(
             ratings
           )}`
         );

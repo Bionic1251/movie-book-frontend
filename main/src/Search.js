@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import image from "./assets/NoImage.jpg";
 
+import SERVER_ADDRESS from "./Utils";
+
 const DisplayMovie = ({ movie }) => {
   const navigate = useNavigate();
 
@@ -67,7 +69,7 @@ const Search = () => {
     if (item.length > 0) {
       axios
         .get(
-          `http://128.214.253.51:3000/dbsearch${category}byname?input=${item}`
+          `${SERVER_ADDRESS}/dbsearch${category}byname?input=${item}`
         )
         .then((response) => {
           setOptions(response.data);

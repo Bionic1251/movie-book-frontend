@@ -14,6 +14,8 @@ import { getCookie, setCookie, onWishlist, addToWishlist } from "../Cookies.js";
 import { updateCookies } from "../pages/Ratings";
 import { updateWishlist } from "../pages/WishList";
 
+import SERVER_ADDRESS from "../Utils";
+
 // Fetches a single book by ID
 const getBookById = (id) => {
   const [book, setBook] = useState([]);
@@ -21,7 +23,7 @@ const getBookById = (id) => {
   useEffect(() => {
     // Sends a GET request to the server to get the book data
     axios
-      .get(`http://localhost:3000/dbgetgivenbookdata?bookid=${id}`)
+      .get(`${SERVER_ADDRESS}/dbgetgivenbookdata?bookid=${id}`)
       .then((response) => {
         setBook(response.data);
       });
@@ -38,7 +40,7 @@ const getBookRecommendationsById = (id) => {
     // Sends a GET request to the server to get the book recommendations data
     axios
       .get(
-        `http://localhost:3000/dbgetforgivenbookrecommendedbooksalldata?bookid=${id}`
+        `${SERVER_ADDRESS}/dbgetforgivenbookrecommendedbooksalldata?bookid=${id}`
       )
       .then((response) => {
         setBooks(response.data);
@@ -56,7 +58,7 @@ const getMovieRecommendationsById = (id) => {
     // Sends a GET request to the server to get the movie recommendations data
     axios
       .get(
-        `http://localhost:3000//dbgetrecommendedmoviesalldataforgivenbook?bookid=${id}`
+        `${SERVER_ADDRESS}/dbgetrecommendedmoviesalldataforgivenbook?bookid=${id}`
       )
       .then((response) => {
         setMovies(response.data);
@@ -71,7 +73,7 @@ const getBooksByAuthor = (author) => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000//dbsearchbooksbyauthor?input=${author}`)
+      .get(`${SERVER_ADDRESS}/dbsearchbooksbyauthor?input=${author}`)
       .then((response) => {
         setBooks(response.data);
       });
