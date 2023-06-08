@@ -197,33 +197,25 @@ const UpdateRecommendations = () => {
 
 const MainPage = () => {
   // Get the list of books and movies
-  const books = GetBooks();
-  const movies = GetMovies();
+  //const books = GetBooks();
+  //const movies = GetMovies();
 
   // If the user has not rated any books or movies yet, display the newest items and a message asking them to rate items
-  if (bookRatings.length === 0 && movieRatings.length === 0) {
+/*  if (bookRatings.length === 0 && movieRatings.length === 0) {
     updateRatings(); // Update ratings to get personal recommendations
     return (
       <div className="page-container">
-        <h2>Highest rated movies</h2>
-        <Items items={movies} page={"movies"} size={"medium-item-pic"} />
-        <h2>Highest rated books</h2>
-        <Items items={books} page={"books"} size={"medium-item-pic"} />
         <p>
           Please rate at least one movie and one book to receive personal
           recommendations.
         </p>
       </div>
     );
-  }
+  }*/
 
   // If the user has rated at least one book or movie, display the highest rated items and an option to update recommendations
   return (
     <div className="page-container">
-      <h2>Highest rated movies</h2>
-      <Items items={movies} page={"movies"} size={"medium-item-pic"} />
-      <h2>Highest rated books</h2>
-      <Items items={books} page={"books"} size={"medium-item-pic"} />
       <UpdateRecommendations />
     </div>
   );

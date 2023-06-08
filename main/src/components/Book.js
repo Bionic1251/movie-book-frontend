@@ -178,6 +178,7 @@ const Book = () => {
     <div className="book-page-wrapper">
       {/* Display the book title and publication year */}
       <h1>{book.title}</h1>
+      <p>This book is similar to [] in terms of X and Y, but has more A and less B.</p>
       <h5>Published in {book.year}</h5>
 
       {/* Display the book image, rating, and user's rating */}
